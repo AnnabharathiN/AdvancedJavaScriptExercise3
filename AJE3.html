@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced JavaScript Exercises</title>
+</head>
+<body>
+    <h1>JavaScript Exercises</h1>
+
+    <button onclick="Ex1()">Exercise 1</button>
+    <button onclick="Ex2()">Exercise 2</button>
+    <button onclick="Ex3()">Exercise 3</button>
+    <button onclick="Ex4()">Exercise 4</button>
+    <button onclick="Ex5()">Exercise 5</button>
+
+    <h3>Output</h3>
+    <pre id="output"></pre>
+
+    <script>
+        const out = (text) => {
+         document.getElementById("output").textContent += text + "\n";
+        };
+
+        // Exercise 1
+        const checkAge = (age) =>
+            age > 18 ? true : confirm("Do you have your parents permission to access this page?");
+
+
+        const Ex1 = () => {
+            out("checkAge(19) = " + checkAge(19));
+            out("checkAge(17) = " + checkAge(17));
+        };
+
+
+        // Exercise 2
+        const pow = (x, n) => x ** n;
+
+        const Ex2 = () => {
+            out("pow(3, 2) = " + pow(3, 2));
+            out("pow(3, 3) = " + pow(3, 3));
+            out("pow(1, 100) = " + pow(1, 100));
+        };
+
+        // Exercise 3
+        function ask(question, yes, no) {
+            if (confirm(question)) yes();
+            else no();
+        }
+
+        const Ex3 = () => {
+            ask(
+                "Do you agree?",
+                () => out("You agreed."),
+                () => out("You canceled the execution.")
+            );
+        };
+
+
+        // Exercise 4
+        let calculator = {
+            read() {
+                this.a = +prompt("Enter the first value:", 0);
+                this.b = +prompt("Enter the second value:", 0);
+            },
+            sum() {
+                return this.a + this.b;
+            },
+            mul() {
+                return this.a * this.b;
+            },
+        };
+
+        const Ex4 = () => {
+            calculator.read();
+            out(calculator.sum());
+            out(calculator.mul());
+            out("sum = " + calculator.sum() + ", mul = " + calculator.mul());
+        };
+
+
+        // Exercise 5
+        const min = (a, b) => (a < b ? a : b);
+
+        const Ex5 = () => {
+            out("min(2, 5) = " + min(2, 5));
+            out("min(3, -1) = " + min(3, -1));
+          out("min(1, 1) = " + min(1, 1));
+        };
+    </script>
+</body>
+</html>
